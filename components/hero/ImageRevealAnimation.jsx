@@ -7,8 +7,11 @@ const ImageRevealAnimation = ({ children }) => {
 
     return (
         <div
-            className='h-full bg-background overflow-hidden
-            flex flex-col justify-center gap-big relative
+            className='h-full overflow-hidden
+            flex flex-col gap-big relative bg-transparent w-full
+            items-center
+            justify-center
+            z-10
             '
             onMouseMove={(e) => {
                 const rect = e.currentTarget.getBoundingClientRect();

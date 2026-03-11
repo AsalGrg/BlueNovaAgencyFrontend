@@ -1,7 +1,13 @@
-
 import type { Metadata } from "next";
-import { Instrument_Serif, Inter } from "next/font/google";
+import {
+  Roboto,
+  Inter,
+  Syne_Tactile,
+  Instrument_Serif,
+} from "next/font/google";
 import "./globals.css";
+import Navbar from "../components/navbar/Navbar";
+import { AnimationCompleteProvider } from "@/context/animation_complete.context";
 
 const instrumental_Serif = Instrument_Serif({
   weight: "400",
@@ -9,9 +15,10 @@ const instrumental_Serif = Instrument_Serif({
   style: ["italic"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+const roboto = Roboto({
+  weight: "400",
+  variable: "--font-roboto",
+  style: ["normal"],
 });
 
 export const metadata: Metadata = {
@@ -27,11 +34,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${instrumental_Serif.variable} ${inter.variable} antialiased`}
+        className={`${instrumental_Serif.variable} ${roboto.variable} antialiased`}
       >
-        <div className="w-full flex justify-center">
-          <main className="layout">{children}</main>
-        </div>
+        <AnimationCompleteProvider>
+          <Navbar />
+          <div className="w-full flex justify-center">
+            <main className="w-full">{children}</main>
+          </div>
+        </AnimationCompleteProvider>
       </body>
     </html>
   );

@@ -19,28 +19,28 @@ export default function LaserBg() {
     console.log(device)
     return (
         <div
-            className={`absolute ${device === 'desktop' ? 'h-[200%]' : device === 'tablet' ? 'h-[110%]':'h-[120%]'} w-full top-0`}
+            className={`absolute ${device === 'desktop' ? 'h-[200%]' : device === 'tablet' ? 'h-[108%]':'h-[124%]'} w-full top-0`}
 
         >
             <LaserFlow
-                horizontalBeamOffset={0.1}
-                verticalBeamOffset={device === "desktop" ? 0.05 : device === "tablet" ? 0.04 : 0.232}
-                horizontalSizing={1.2}
-                decay={1}
+                horizontalBeamOffset={0.09}
+                verticalBeamOffset={device === "desktop" ? 0.00 : device === "tablet" ? 0.0: 0.19}
+                horizontalSizing={1.8}
+                decay={1.2}
                 flowStrength={0}
-                fogIntensity={0.7}
-                falloffStart={1.2}
+                fogIntensity={1}
+                falloffStart={1.06}
                 color="#003459"
-                dpr={device === "desktop" ? 50 : device === "tablet" ? 50 : 100}
+                dpr={device === "desktop" ? 28 : device === "tablet" ? 28 : 50}
             />
 
             <div
                 //640px bg
                 //490px md
-                className='lg:h-[640px] md:h-[480px] h-[240px] w-full overflow-hidden'
+                className='lg:h-[640px] md:h-[400px] h-[240px] w-full overflow-hidden'
                 style={{
                     position: 'absolute',
-                    top: `${device==='mobile'?'64%':device==='tablet'?'72%':'45%'}`,
+                    top: `${device==='mobile'?'80%':device==='tablet'?'80%':'50%'}`,
                     left: '50%',
                     transform: 'translateX(-50%)',
                     backgroundColor: '#060010',
