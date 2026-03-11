@@ -4,8 +4,8 @@ const Button = ({ text, type = "primary" }) => {
 
 
     return (
-        <button className={`rounded-[8px] cursor-pointer param !font-semibold ${type === 'primary' ? 'bg-primary border-none' : 'bg-transparent border-2 border-primary'}text-secondary
-        md:px-[32px] px-[24px]  md:py-[16px] py-[8px]
+        <button className={`rounded-xl cursor-pointer para text-secondary ${type === 'primary' ? '!font-semibold drop-shadow-accent bg-primary' : '!font-semibold bg-primary/12 backdrop-blur-3xl'}
+        md:px-[24px] px-[12px]  md:py-[20px] py-[12px]
         `}>{text}</button>
     )
 }

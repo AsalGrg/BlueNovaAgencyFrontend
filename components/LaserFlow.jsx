@@ -313,7 +313,7 @@ export const LaserFlow = ({
     renderer.setClearColor(0x000000, 1);
     const canvas = renderer.domElement;
     canvas.style.width = '100%';
-    canvas.style.height = device === 'desktop' ? '100%' : device=== 'tablet' ? '160%' : '240%';
+    canvas.style.height = device === 'desktop' ? '100%' : device=== 'tablet' ? '160%' : '260%';
     canvas.style.display = 'block';
     mount.appendChild(canvas);
 
