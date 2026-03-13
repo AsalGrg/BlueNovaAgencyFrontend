@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { Suspense, useRef } from 'react'
 import ProjectsSlider from './ProjectsSlider'
 import { projects } from '@/constants/ProjectsList'
 import ScrollRevealText from '../ScrollRevealText'
@@ -26,9 +26,11 @@ const Projects = () => {
                 lg:grid-cols-2
                 gap-big
                 '>
-                    {projects.map((each, key) => (
-                        <ProjectsSlider key={key} project={each}/>
-                    ))}
+                    <Suspense fallback={null}>
+                        {projects.map((each, key) => (
+                            <ProjectsSlider key={key} project={each} />
+                        ))}
+                    </Suspense>
                 </div>
             </div>
         </section>

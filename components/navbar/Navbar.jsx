@@ -61,7 +61,7 @@ const Navbar = () => {
           BNova
         </p> */}
 
-        <Image src={'/logo.png'} width={150} height={100} alt='brand-logo' />
+        <Image src={'/logo.png'} width={100} height={100} alt='brand-logo' />
         <div className='flex gap-small items-center cursor-pointer z-20'
           onClick={() => {
             setclosed(!closed)

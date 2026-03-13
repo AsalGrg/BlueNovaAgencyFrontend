@@ -26,12 +26,12 @@ export default function LaserBg() {
                 horizontalBeamOffset={0.09}
                 verticalBeamOffset={device === "desktop" ? 0.00 : device === "tablet" ? 0.0: 0.19}
                 horizontalSizing={1.8}
-                decay={1.2}
+                decay={1}
                 flowStrength={0}
                 fogIntensity={1}
                 falloffStart={1.06}
                 color="#003459"
-                dpr={device === "desktop" ? 28 : device === "tablet" ? 28 : 50}
+                dpr={device === "desktop" ? 10 : device === "tablet" ? 28 : 20}
             />
 
             <div

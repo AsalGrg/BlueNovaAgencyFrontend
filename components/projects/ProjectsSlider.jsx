@@ -1,7 +1,6 @@
 
 "use client"
 import Image from 'next/image'
-import React, { useRef } from 'react'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 

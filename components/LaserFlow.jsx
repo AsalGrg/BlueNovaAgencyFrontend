@@ -1,8 +1,10 @@
 'use client'
+
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import './LaserFlow.css';
 import useDeviceType from '@/utilities/DeviceChecker';
+
 
 const VERT = `
 precision highp float;
@@ -239,7 +241,6 @@ void main(){
   gl_FragColor = fc;
 }
 `;
-
 export const LaserFlow = ({
   className,
   style,

@@ -7,6 +7,7 @@ import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
 import gsap from 'gsap';
 import { useAnimationCompleteContext } from '@/context/animation_complete.context';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 const Hero = () => {
 
     const heroContainerRef = useRef(null)
@@ -14,6 +15,7 @@ const Hero = () => {
 
     const changingTextAnimationRef = useRef(null);
     const [currentText, setcurrentText] = useState(0)
+    const [inView, setinView] = useState(false)
 
     const { setcomplete, complete } = useAnimationCompleteContext();
 
@@ -72,6 +74,7 @@ const Hero = () => {
                     })
             }
         })
+
     }, { scope: heroContainerRef })
 
 

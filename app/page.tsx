@@ -5,7 +5,7 @@ import TextReveal from "../components/TextReveal";
 import Services from '@/components/services/Services'
 import Process from '@/components/process/Process'
 import Projects from '@/components/projects/Projects'
-
+import Contact from '@/components/contact/Contact'
 
 
 import { gsap } from "gsap";
@@ -40,6 +40,7 @@ export default function Home() {
       <Services/>
       <Process/>
       <Projects/>
+      <Contact/>
     </div>
   );
 }
