@@ -28,7 +28,7 @@ const Services = () => {
         cards.forEach((row) => {
             console.log(row)
             gsap.fromTo(row, {
-                y: 200,
+                y: 120,
                 opacity:0,
                 filter: 'blur(16px)'
             }, {

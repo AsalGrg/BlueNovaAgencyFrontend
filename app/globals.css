@@ -5,6 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --bar-blue: '#005998';
   --background: oklch(0 0 0);
   --foreground: oklch(1 0 0);
   --card: oklch(0.7572 0 0);
@@ -210,7 +211,9 @@
   .para {
     @apply text-[clamp(1rem,(0.9432rem+0.2841vw),1.125rem)]/[140%] tracking-wide text-secondary/70 font-normal font-roboto;
   }
-
+  .small-para{
+    @apply text-[clamp(0.75rem,(0.6364rem+0.5682vw),0.8rem)]
+  }
   .reveal-text {
     @apply text-[clamp(2.5rem,(1.1364rem+6.8182vw),5.5rem)]/[100%]! text-secondary/40;
   }
@@ -219,6 +222,12 @@
   }
   .gap-big {
     @apply lg:gap-[32px]  gap-[24px];
+  }
+  .card-header{
+    @apply text-[clamp(2rem,1.5455rem+2.2727vw,3rem)]/[90%] font-roboto tracking-tight
+  }
+  .card-header-italic{
+    @apply text-[clamp(2rem,1.5455rem+2.2727vw,3rem)]/[80%] font-serif italic tracking-tight
   }
 }
 
