@@ -4,6 +4,9 @@ import Hero from "../components/hero/Hero";
 import TextReveal from "../components/TextReveal";
 import Services from '@/components/services/Services'
 import Process from '@/components/process/Process'
+import Projects from '@/components/projects/Projects'
+
+
 
 import { gsap } from "gsap";
 
@@ -11,6 +14,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import Lenis from "lenis";
 import { useEffect } from "react";
+
+import 'swiper/css';
+
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -27,14 +33,13 @@ export default function Home() {
     lenis.on("scroll", ScrollTrigger.update);
   }, []);
 
-
-
   return (
     <div className="">
       <Hero />
       <TextReveal />
       <Services/>
       <Process/>
+      <Projects/>
     </div>
   );
 }
