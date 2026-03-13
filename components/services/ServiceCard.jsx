@@ -11,8 +11,8 @@ const ServiceCard = ({classN}) => {
         `}>
 
             <Image src={'/website-icon.svg'} width={80} height={80} alt='website-icon' />
-            <div className='flex flex-col items-start'>
-                <h3 className='text-[clamp(2rem,1.5455rem+2.2727vw,3rem)] font-roboto'>
+            <div className='flex flex-col items-start gap-small'>
+                <h3 className='card-header'>
                     Websites
                 </h3>
                 <p className='para text-secondary'>We create tailored website on whatever stack you need that just fits right for you</p>

@@ -3,6 +3,8 @@
 import Hero from "../components/hero/Hero";
 import TextReveal from "../components/TextReveal";
 import Services from '@/components/services/Services'
+import Process from '@/components/process/Process'
+
 import { gsap } from "gsap";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -32,6 +34,7 @@ export default function Home() {
       <Hero />
       <TextReveal />
       <Services/>
+      <Process/>
     </div>
   );
 }
