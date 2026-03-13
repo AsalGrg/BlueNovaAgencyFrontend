@@ -8,6 +8,7 @@ import {
 import "./globals.css";
 import Navbar from "../components/navbar/Navbar";
 import { AnimationCompleteProvider } from "@/context/animation_complete.context";
+import Script from "next/script";
 
 const instrumental_Serif = Instrument_Serif({
   weight: "400",
@@ -42,6 +43,13 @@ export default function RootLayout({
             <main className="w-full">{children}</main>
           </div>
         </AnimationCompleteProvider>
+
+
+
+        <Script
+          src="https://kit.fontawesome.com/d49d584165.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

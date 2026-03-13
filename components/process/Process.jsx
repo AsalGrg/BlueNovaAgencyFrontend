@@ -22,7 +22,7 @@ const Process = () => {
                     trigger: contentRef.current,
                     scrub: true,
                     start: 'top 24%',
-                    end: 'bottom top',
+                    end: 'bottom bottom',
                     pin: '.content',
                 }
             });
@@ -48,7 +48,7 @@ const Process = () => {
     }, { scope: contentRef });
 
     return (
-        <section className='w-full h-fit flex justify-center my-[50%] md:my-[8%]'>
+        <section className='w-full h-fit flex justify-center my-[8%] md:my-[6%]'>
             <div className='layout h-full flex flex-col gap-big items-center'>
 
                 {/* heading */}
@@ -62,7 +62,7 @@ const Process = () => {
                 </ScrollRevealText>
 
 
-                <div className='w-[100%] flex 
+                <div className='w-[100%] flex
                 xl:justify-center xl:h-fit 
                 h-[300vh] justify-start 
                 overflow-hidden
