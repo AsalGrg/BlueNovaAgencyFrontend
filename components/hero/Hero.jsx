@@ -15,7 +15,7 @@ const Hero = () => {
 
     const changingTextAnimationRef = useRef(null);
     const [currentText, setcurrentText] = useState(0)
-    const [inView, setinView] = useState(false)
+    const [isLowEndDevice, setisLowEndDevice] = useState(false)
 
     const { setcomplete, complete } = useAnimationCompleteContext();
 
@@ -29,7 +29,7 @@ const Hero = () => {
             type: ['words', 'chars'],
             autoSplit: true,
             mask: "words",
-            wordsClass:'split-words',
+            wordsClass: 'split-words',
             onSplit: (self) => {
                 return timeline.
                     fromTo(self.chars,
@@ -102,6 +102,19 @@ const Hero = () => {
         changeNext();
     }, [complete])
 
+    useEffect(() => {
+        // hardware
+        const isLowEnd = !navigator.hardwareConcurrency || navigator.hardwareConcurrency <= 4;
+
+        // network
+        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        const isSlowNetwork = connection
+            ? connection.saveData || ['slow-2g', '2g', '3g'].includes(connection.effectiveType)
+            : false; // if API unsupported, assume fast
+
+        setisLowEndDevice(isLowEnd || isSlowNetwork);
+    }, [])
+
     async function changeToNextText() {
         await new Promise(() => {
             setTimeout(() => {
@@ -139,7 +152,13 @@ const Hero = () => {
                             <span className='nonChangingText'> companies.</span></h1>
                     </div>
                 </ImageRevealAnimation>
-                <LaserBg />
+
+                {
+                    !isLowEndDevice ? (
+
+                        <LaserBg />
+                    ) : null
+                }
             </div>
         </section>
     )

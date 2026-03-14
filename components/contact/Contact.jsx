@@ -10,8 +10,9 @@ const Contact = () => {
     const textRef = useRef(null)
     const contentRef = useRef(null);
     const [startBtn, setstartBtn] = useState(null);
-
+    const [isLowEndDevice, setisLowEndDevice] = useState(false)
     const [inView, setinView] = useState(false)
+    
     useGSAP(() => {
         ScrollTrigger.create({
             trigger: containerRef.current,
@@ -29,6 +30,16 @@ const Contact = () => {
 
     useEffect(() => {
         setstartBtn(document.getElementById('start-btn'))
+        // hardware
+        const isLowEnd = !navigator.hardwareConcurrency || navigator.hardwareConcurrency <= 4;
+
+        // network
+        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        const isSlowNetwork = connection
+            ? connection.saveData || ['slow-2g', '2g', '3g'].includes(connection.effectiveType)
+            : false; // if API unsupported, assume fast
+
+        setisLowEndDevice(isLowEnd || isSlowNetwork);
     }, [])
 
     return (
@@ -69,7 +80,7 @@ const Contact = () => {
                 </div>
 
             </div>
-            {inView ? (
+            {inView && !isLowEndDevice ? (
                 <LightPillarBg />
             ) : null}
         </section>
