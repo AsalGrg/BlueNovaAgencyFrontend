@@ -31,7 +31,7 @@ const Contact = () => {
     useEffect(() => {
         setstartBtn(document.getElementById('start-btn'))
         // hardware
-        const isLowEnd = !navigator.hardwareConcurrency || navigator.hardwareConcurrency < 4;
+        const isLowEnd = !navigator.hardwareConcurrency || navigator.hardwareConcurrency < 3;
 
         // network
         const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
