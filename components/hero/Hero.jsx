@@ -131,10 +131,10 @@ const Hero = () => {
 
                             <div className='h-fit md:text-start text-center'>
                                 <span className='nonChangingText left-0 top-0'>We design and build </span>
-                                <span className='big-header-italic xl:inline inline-block min-w-full text-center  !text-primary' id='changingText'>websites</span>
+                                <span className='big-header-italic xl:inline inline-block min-w-full text-center  text-primary!' id='changingText'>websites</span>
                             </div>
                             <span className='nonChangingText'>that </span>
-                            <span className='big-header-italic min-w-full text-center  md:!text-primary text-secondary nonChangingText'>grows</span>
+                            <span className='big-header-italic min-w-full text-center  md:text-primary! text-secondary nonChangingText'>grows</span>
                             <span className='nonChangingText'> companies.</span></h1>
                     </div>
                 </ImageRevealAnimation>
