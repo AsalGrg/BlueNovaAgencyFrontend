@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import LaserFlow from '../LaserFlow';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useDeviceType from '@/utilities/DeviceChecker';
 import VideoPlayer from './VideoPlayer'
 
@@ -23,7 +23,7 @@ export default function LaserBg() {
 
     useEffect(() => {
         // hardware
-        const isLowEnd = !navigator.hardwareConcurrency || navigator.hardwareConcurrency < 3;
+        const isLowEnd = !navigator.hardwareConcurrency || navigator.hardwareConcurrency <= 3;
 
         // network
         const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
