@@ -12,7 +12,7 @@ const Contact = () => {
     const [startBtn, setstartBtn] = useState(null);
     const [isLowEndDevice, setisLowEndDevice] = useState(false)
     const [inView, setinView] = useState(false)
-    
+
     useGSAP(() => {
         ScrollTrigger.create({
             trigger: containerRef.current,
@@ -31,7 +31,7 @@ const Contact = () => {
     useEffect(() => {
         setstartBtn(document.getElementById('start-btn'))
         // hardware
-        const isLowEnd = !navigator.hardwareConcurrency || navigator.hardwareConcurrency <= 4;
+        const isLowEnd = !navigator.hardwareConcurrency || navigator.hardwareConcurrency < 4;
 
         // network
         const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import LaserFlow from '../LaserFlow';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import useDeviceType from '@/utilities/DeviceChecker';
 import VideoPlayer from './VideoPlayer'
 
@@ -18,6 +18,22 @@ export default function LaserBg() {
 
     const device = useDeviceType();
 
+    const [isLowEndDevice, setisLowEndDevice] = useState(false)
+
+
+    useEffect(() => {
+        // hardware
+        const isLowEnd = !navigator.hardwareConcurrency || navigator.hardwareConcurrency < 4;
+
+        // network
+        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        const isSlowNetwork = connection
+            ? connection.saveData || ['slow-2g', '2g', '3g'].includes(connection.effectiveType)
+            : false; // if API unsupported, assume fast
+
+        setisLowEndDevice(isLowEnd || isSlowNetwork);
+    }, [])
+
 
     console.log(device)
     return (
@@ -25,18 +41,23 @@ export default function LaserBg() {
             className={`absolute ${device === 'desktop' ? 'h-[200%]' : device === 'tablet' ? 'h-[108%]' : 'h-[124%]'} w-full top-0`}
 
         >
-            <LaserFlow
-                horizontalBeamOffset={0.09}
-                verticalBeamOffset={device === "desktop" ? 0.00 : device === "tablet" ? 0.0 : 0.19}
-                horizontalSizing={1.8}
-                decay={1.2}
-                flowStrength={0}
-                fogIntensity={1}
-                falloffStart={1.06}
-                color="#003459"
-                dpr={device === "desktop" ? 28 : device === "tablet" ? 30 : 36}
-            />
 
+            {
+                !isLowEndDevice ? (
+
+                    <LaserFlow
+                        horizontalBeamOffset={0.09}
+                        verticalBeamOffset={device === "desktop" ? 0.00 : device === "tablet" ? 0.0 : 0.19}
+                        horizontalSizing={1.8}
+                        decay={1.2}
+                        flowStrength={0}
+                        fogIntensity={1}
+                        falloffStart={1.06}
+                        color="#003459"
+                        dpr={device === "desktop" ? 28 : device === "tablet" ? 30 : 36}
+                    />
+                ) : null
+            }
             <div
                 //640px bg
                 //490px md

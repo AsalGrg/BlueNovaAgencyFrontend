@@ -102,19 +102,6 @@ const Hero = () => {
         changeNext();
     }, [complete])
 
-    useEffect(() => {
-        // hardware
-        const isLowEnd = !navigator.hardwareConcurrency || navigator.hardwareConcurrency <= 4;
-
-        // network
-        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-        const isSlowNetwork = connection
-            ? connection.saveData || ['slow-2g', '2g', '3g'].includes(connection.effectiveType)
-            : false; // if API unsupported, assume fast
-
-        setisLowEndDevice(isLowEnd || isSlowNetwork);
-    }, [])
-
     async function changeToNextText() {
         await new Promise(() => {
             setTimeout(() => {
@@ -153,12 +140,8 @@ const Hero = () => {
                     </div>
                 </ImageRevealAnimation>
 
-                {
-                    !isLowEndDevice ? (
+                <LaserBg />
 
-                        <LaserBg />
-                    ) : null
-                }
             </div>
         </section>
     )
