@@ -36,6 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta name="google-site-verification" content="R2nf9lA3u01jwUZinEGSw6vtyhFzuXqHm0kW57FxQmc" />
       <body
         className={`${instrumental_Serif.variable} ${roboto.variable} antialiased`}
       >
