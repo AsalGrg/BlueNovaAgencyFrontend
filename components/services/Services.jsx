@@ -91,7 +91,7 @@ const Services = () => {
                     ref={contentRef}
                 >
                     <div className='xl:w-[56%] w-fit flex gap-6
-                        xl:grid xl:grid-cols-2 xl:gap-6
+                        lg:grid lg:grid-cols-2 lg:gap-6
                         bg-none
                         relative
                         content-scroll-services

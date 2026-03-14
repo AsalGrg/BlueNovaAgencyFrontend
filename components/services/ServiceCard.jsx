@@ -7,7 +7,7 @@ const ServiceCard = ({ service}) => {
         gap-big
         h-100 w-[70vw]
         md:w-[40vw]  md:h-[48vw]
-        xl:w-full xl:h-116 col-span-1
+        lg:w-full lg:h-116 col-span-1
         xl:bg-none 
         bg-linear-to-b from-background from-90% to-accent
         backdrop-saturate-150

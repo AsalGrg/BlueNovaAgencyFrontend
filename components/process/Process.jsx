@@ -113,9 +113,9 @@ const Process = () => {
                 >
                     <div className='
                     w-fit
-                    xl:w-[80%]
+                    lg:w-[80%]
                     content flex items-start md:gap-10 gap-8
-                    xl:grid grid-cols-3
+                    lg:grid grid-cols-3
                 '
                     >
                         <ProcessCard cardIcon={<CardIcon1 />} title={'We know our'} italicTitle={'clients'}
