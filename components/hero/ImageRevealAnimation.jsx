@@ -20,7 +20,7 @@ const ImageRevealAnimation = ({ children }) => {
                 const el = revealImgRef.current;
                 if (el) {
                     el.style.setProperty('--mx', `${x}px`);
-                    el.style.setProperty('--my', `${y + rect.height * 0.5}px`);
+                    el.style.setProperty('--my', `${y + rect.height * 0.6}px`);
                 }
             }}
             onMouseLeave={() => {
@@ -37,15 +37,15 @@ const ImageRevealAnimation = ({ children }) => {
             {/* revealed image */}
             <img
                 ref={revealImgRef}
-                src="/globe.svg"
+                src="/bg-image.svg"
                 alt="Reveal effect"
                 style={{
                     position: 'absolute',
                     width: '100%',
-                    top: '-50%',
+                    top: '-60%',
                     zIndex: 5,
                     mixBlendMode: 'lighten',
-                    opacity: 0.3,
+                    opacity: 0.6,
                     pointerEvents: 'none',
                     '--mx': '-9999px',
                     '--my': '-9999px',
