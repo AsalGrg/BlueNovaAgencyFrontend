@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ScrollRevealText from '../ScrollRevealText'
 import LightPillarBg from './LightPillarBg'
 import Button from '../Button'
@@ -8,27 +8,35 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 const Contact = () => {
     const containerRef = useRef(null)
     const textRef = useRef(null)
-    const contentRef= useRef(null);
+    const contentRef = useRef(null);
+    const [startBtn, setstartBtn] = useState(null);
 
     const [inView, setinView] = useState(false)
-    useGSAP(()=>{
+    useGSAP(() => {
         ScrollTrigger.create({
-            trigger:containerRef.current,
-            start:'top bottom',
-            onEnter:()=>{
+            trigger: containerRef.current,
+            start: 'top bottom',
+            onEnter: () => {
                 console.log('entered')
-                setinView(true)},
-            onLeaveBack:()=>{
+                setinView(true)
+            },
+            onLeaveBack: () => {
                 console.log('leaved')
-                setinView(false)}
+                setinView(false)
+            }
         })
-    }, {scope:contentRef})
+    }, { scope: contentRef })
+
+    useEffect(() => {
+        setstartBtn(document.getElementById('start-btn'))
+    }, [])
+
     return (
         <section className='w-full flex flex-col justify-center items-center xl:h-full h-[80vh]
         relative
         py-[8%]
         '
-        ref={containerRef}
+            ref={containerRef}
         >
             <div className='layout h-fit flex flex-col gap-big relative'>
                 <ScrollRevealText containerRef={containerRef} textRef={textRef}>
@@ -44,17 +52,26 @@ const Contact = () => {
                 </ScrollRevealText>
 
                 <div className='flex flex-col lg:flex-row justify-center lg:justify-between gap-big items-center'>
-                    <Button type='primary' text={'Start a project'} />
+                    <div className='w-fit'
+                        onClick={() => {
+                            startBtn.click();
+                            console.log('clicked')
+                        }}
+                    >
+                        <Button type='primary' text={'Start a project'} />
+                    </div>
                     <div className='right-0 w-fit flex flex-col gap-1 text-center'>
                         <h4 className='para text-secondary'>Contact Info:</h4>
-                        <p className='small-para underline underline-offset-4'>gurung.asal.06@gmail.com</p>
+                        <a href='mailto:asal.gurung.06@gmail.com'>
+                            <p className='small-para underline underline-offset-4 text-slate-200'>gurung.asal.06@gmail.com</p>
+                        </a>
                     </div>
                 </div>
 
             </div>
-            {inView?(
+            {inView ? (
                 <LightPillarBg />
-            ): null}
+            ) : null}
         </section>
     )
 }

@@ -1,16 +1,20 @@
 
 "use client"
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
+import { useRef } from 'react'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 const ProjectsSlider = ({ project }) => {
+
     console.log();
     return (
         <div className='h-full
         relative
         col-span-1
-        '>
+        '        >
             <div className='w-full h-full
             flex flex-col gap-small
             '>
@@ -19,12 +23,8 @@ const ProjectsSlider = ({ project }) => {
                         modules={[Autoplay, Pagination, Navigation]}
                         slidesPerView={1}
                         loop={true}
-                        onSlideChange={() => console.log('slide change')}
                         speed={1200}
-                        autoplay={{
-                            delay: 3000,
-                            pauseOnMouseEnter: true
-                        }}
+                        autoplay={{ delay: 3000, pauseOnMouseEnter: true, disableOnInteraction: false }}
                         pagination={{
                             clickable: false,
                         }}
@@ -32,6 +32,7 @@ const ProjectsSlider = ({ project }) => {
                             prevEl: '.prev-btn' + project.id,
                             nextEl: '.next-btn' + project.id
                         }}
+
                         observer={true}
                         observeParents={true}
 

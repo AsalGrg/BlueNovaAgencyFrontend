@@ -9,7 +9,7 @@ export default function useDeviceType() {
       const width = window.innerWidth;
       if (width < 500) {
         setDevice("mobile");
-      } else if (width >= 500 && width < 1080) {
+      } else if (width >= 500 && width < 1100) {
         setDevice("tablet");
       } else {
         setDevice("desktop");

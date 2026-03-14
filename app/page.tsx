@@ -2,11 +2,10 @@
 
 import Hero from "../components/hero/Hero";
 import TextReveal from "../components/TextReveal";
-import Services from '@/components/services/Services'
-import Process from '@/components/process/Process'
-import Projects from '@/components/projects/Projects'
-import Contact from '@/components/contact/Contact'
-
+import Services from "@/components/services/Services";
+import Process from "@/components/process/Process";
+import Projects from "@/components/projects/Projects";
+import Contact from "@/components/contact/Contact";
 
 import { gsap } from "gsap";
 
@@ -15,8 +14,8 @@ import { SplitText } from "gsap/SplitText";
 import Lenis from "lenis";
 import { useEffect } from "react";
 
-import 'swiper/css';
-
+import "swiper/css";
+import { ProcessCardAnimationProvider } from "@/context/process_cards_animation.context";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -37,10 +36,13 @@ export default function Home() {
     <div className="">
       <Hero />
       <TextReveal />
-      <Services/>
-      <Process/>
-      <Projects/>
-      <Contact/>
+      <Services />
+
+      <ProcessCardAnimationProvider>
+        <Process />
+      </ProcessCardAnimationProvider>
+      <Projects />
+      <Contact />
     </div>
   );
 }

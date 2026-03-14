@@ -278,6 +278,7 @@ export const LaserFlow = ({
   const inViewRef = useRef(true);
 
   const device = useDeviceType();
+  console.log('from c',device)
   const hexToRGB = hex => {
     let c = hex.trim();
     if (c[0] === '#') c = c.slice(1);
@@ -315,6 +316,7 @@ export const LaserFlow = ({
     const canvas = renderer.domElement;
     canvas.style.width = '100%';
     canvas.style.height = device === 'desktop' ? '100%' : device=== 'tablet' ? '160%' : '260%';
+    console.log('height',canvas.style.height)
     canvas.style.display = 'block';
     mount.appendChild(canvas);
 

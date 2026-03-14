@@ -8,9 +8,12 @@ const ScrollRevealText = ({ children, containerRef, textRef }) => {
 
     useGSAP(() => {
 
-        const splitText = SplitText.create(textRef.current, {
+        const splitText = 
+        
+        SplitText.create(textRef.current, {
             type: ['lines', 'words'],
-            mask: 'words'
+            mask: 'words',
+            wordsClass:'split-words'
         })
 
         gsap.fromTo(splitText.words, {

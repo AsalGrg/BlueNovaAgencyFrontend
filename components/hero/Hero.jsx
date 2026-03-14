@@ -29,6 +29,7 @@ const Hero = () => {
             type: ['words', 'chars'],
             autoSplit: true,
             mask: "words",
+            wordsClass:'split-words',
             onSplit: (self) => {
                 return timeline.
                     fromTo(self.chars,
@@ -115,7 +116,7 @@ const Hero = () => {
         <section className='lg:h-screen md:h-[104vmin] h-[80vh]
          w-full
          flex justify-center
-         mb-[50%] md:mb-[64%] lg:mb-[60%] 
+         mb-[50%] md:mb-[64%] lg:mb-[68%] 
         '
             ref={heroContainerRef}
         >
@@ -124,13 +125,13 @@ const Hero = () => {
             relative h-full
             '>
                 <ImageRevealAnimation>
-                    <div className='flex flex-col gap-small z-10 w-full'>
+                    <div className='flex flex-col gap-small z-10 w-full h-full justify-center lg:justify-center '>
                         <h1
                             ref={headingRef}
-                            className='big-header text-center w-full '>
+                            className='big-header text-center w-full relative'>
 
-                            <div className='h-fit md:text-start text-center'>
-                                <span className='nonChangingText left-0 top-0'>We design and build </span>
+                            <div className='h-fit xl:text-start text-center'>
+                                <span className='nonChangingText'>We design and build </span>
                                 <span className='big-header-italic xl:inline inline-block min-w-full text-center  text-primary!' id='changingText'>websites</span>
                             </div>
                             <span className='nonChangingText'>that </span>

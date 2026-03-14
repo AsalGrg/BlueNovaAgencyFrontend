@@ -4,6 +4,7 @@ import Image from 'next/image';
 import LaserFlow from '../LaserFlow';
 import { useRef } from 'react';
 import useDeviceType from '@/utilities/DeviceChecker';
+import VideoPlayer from './VideoPlayer'
 
 // NOTE: You can also adjust the variables in the shader for super detailed customization
 
@@ -16,31 +17,33 @@ import useDeviceType from '@/utilities/DeviceChecker';
 export default function LaserBg() {
 
     const device = useDeviceType();
+
+
     console.log(device)
     return (
         <div
-            className={`absolute ${device === 'desktop' ? 'h-[200%]' : device === 'tablet' ? 'h-[108%]':'h-[124%]'} w-full top-0`}
+            className={`absolute ${device === 'desktop' ? 'h-[200%]' : device === 'tablet' ? 'h-[108%]' : 'h-[124%]'} w-full top-0`}
 
         >
             <LaserFlow
                 horizontalBeamOffset={0.09}
-                verticalBeamOffset={device === "desktop" ? 0.00 : device === "tablet" ? 0.0: 0.19}
+                verticalBeamOffset={device === "desktop" ? 0.00 : device === "tablet" ? 0.0 : 0.19}
                 horizontalSizing={1.8}
                 decay={1.2}
                 flowStrength={0}
                 fogIntensity={1}
                 falloffStart={1.06}
                 color="#003459"
-                dpr={device === "desktop" ? 28 : device === "tablet" ? 28 : 50}
+                dpr={device === "desktop" ? 28 : device === "tablet" ? 30 : 36}
             />
 
             <div
                 //640px bg
                 //490px md
-                className='lg:h-[640px] md:h-[400px] h-[240px] w-full overflow-hidden'
+                className='max-h-fit min-h-[10vh] w-full overflow-hidden'
                 style={{
                     position: 'absolute',
-                    top: `${device==='mobile'?'80%':device==='tablet'?'80%':'50%'}`,
+                    top: `${device === 'mobile' ? '80%' : device === 'tablet' ? '80%' : '50%'}`,
                     left: '50%',
                     transform: 'translateX(-50%)',
                     backgroundColor: '#060010',
@@ -53,11 +56,7 @@ export default function LaserBg() {
                     fontSize: '2rem',
                     zIndex: 6
                 }}>
-                <Image className='w-full h-full object-cover saturate-0' alt='video-thumbnail' src={'/video-thumbnail.png'}
-                    width={100} height={100}
-                >
-
-                </Image>
+                <VideoPlayer />
             </div>
 
         </div>

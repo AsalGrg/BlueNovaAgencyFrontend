@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useAnimationCompleteContext } from '@/context/animation_complete.context'
+import useDeviceType from '@/utilities/DeviceChecker'
 
 const Navbar = () => {
 
@@ -12,6 +13,7 @@ const Navbar = () => {
   const navbarRef = useRef(null)
   const { complete } = useAnimationCompleteContext();
   const animationRef = useRef(null)
+  const device= useDeviceType();
   useGSAP(() => {
     animationRef.current = gsap.fromTo(navbarRef.current, {
       y: -10,
@@ -31,7 +33,6 @@ const Navbar = () => {
       duration: 0.5,
       ease: 'bounce.inOut'
     })
-
     arrowAnimatonLoop.play();
 
   }, { scope: navbarRef })
@@ -43,7 +44,7 @@ const Navbar = () => {
   }, [complete])
 
   return (
-    <nav className='fixed top-0 h-fit flex justify-center py-[40px] w-full z-20'
+    <nav className='fixed top-0 h-fit flex justify-center xs:py-[8%] md:py-[6%] xl:p-[40px] w-full z-20'
       ref={navbarRef}
     >
       {/* Buttons — isolated, no blend */}
@@ -61,13 +62,16 @@ const Navbar = () => {
           BNova
         </p> */}
 
-        <Image src={'/logo.png'} width={100} height={100} alt='brand-logo' />
+        <Image src={'/logo.png'} width={device==='desktop'?200: device==='tablet'?150:100} height={device==='desktop'?200: device==='tablet'?150:100} alt='brand-logo'
+        />
         <div className='flex gap-small items-center cursor-pointer z-20'
           onClick={() => {
             setclosed(!closed)
             console.log('clicked')
             console.log(closed)
           }}
+
+          id='start-btn'
         >
           <Button text={"Start a project"} type='sec' />
           <div className='bg-primary backdrop-blur-3xl px-3 py-5 rounded-full'
@@ -139,14 +143,16 @@ const DropDown = ({ setclosed, closed }) => {
           <div className='h-[50%] w-0.5 bg-accent'></div>
           <div className='flex flex-col justify-center'>
             <p className='para'>Click to copy</p>
-            <p className='para text-secondary underline underline-offset-2'>gurung.asal.06@gmail.com</p>
+            <a href='mailto:asal.gurung.06@gmail.com'>
+              <p className='para text-secondary underline underline-offset-2'>gurung.asal.06@gmail.com</p>
+            </a>
           </div>
         </div>
 
         {/* bottom row */}
         <div className='flex gap-small items-center'>
           <p className='para'>Or</p>
-          <Button text={'Book a free call'} />
+          <a href='https://calendly.com/gurung-asal-06/30min' target='_blank'><Button text={'Book a free call'} /></a>
           <p className='para'>to discuss about your project</p>
         </div>
 

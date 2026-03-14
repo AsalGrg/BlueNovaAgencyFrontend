@@ -25,9 +25,8 @@ const Services = () => {
                 scrollTrigger: {
                     trigger: contentRef.current,
                     scrub: true,
-                    start: 'top 22%',
+                    start: 'top 28%',
                     end: 'bottom 80%',
-                    markers: true,
                     pin: '.content',
                 }
             });
@@ -78,7 +77,7 @@ const Services = () => {
                     >
                         <h1 className='big-header'
                             ref={textRef}
-                        >What We <span className='big-header-italic text-primary'>Offer ?</span></h1>
+                        >What We <span className='big-header-italic text-primary'>Offer <span className='not-italic!'>?</span></span></h1>
                     </div>
                 </ScrollReveal>
 

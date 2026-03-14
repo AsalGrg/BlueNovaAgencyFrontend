@@ -229,6 +229,10 @@
   .card-header-italic{
     @apply text-[clamp(2rem,1.5455rem+2.2727vw,3rem)]/[80%] font-serif italic tracking-tight
   }
+
+  .split-words{
+    @apply overflow-visible! pb-3 pl-2 
+  }
 }
 
 

@@ -62,9 +62,8 @@ const TextReveal = () => {
 
     }, { scope: textRef })
     return (
-        <section ref={textRef} className='bg-red w-full text-center h-[90vh] overflow-hidden py-[2%] flex items-center xl:items-start'>
-
-            <h3 className='big-header reveal-text'>We build powerful digital identities through strategic media management and stunning websites that grow brands.</h3>
+        <section ref={textRef} className='bg-red w-full text-center h-[90vh] overflow-hidden py-[2%] flex justify-center items-center lg:items-start'>
+            <h3 className='big-header text-center reveal-text'>We build powerful digital identities through strategic media management and stunning websites that grow brands.</h3>
         </section>
     )
 }

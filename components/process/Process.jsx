@@ -1,16 +1,29 @@
-import React, { useRef } from 'react'
+'use client'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import ScrollRevealText from '../ScrollRevealText';
 import ProcessCard from './ProcessCard';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import useDeviceType from '@/utilities/DeviceChecker';
+import { ProcessCardAnimation } from '@/context/process_cards_animation.context'
 import Image from 'next/image';
+import { useAnimationCompleteContext } from '@/context/animation_complete.context';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+function useProcessCardAnimation() {
+    const animationTimeline = useContext(ProcessCardAnimation);
+    return animationTimeline;
+}
+
+
+
 const Process = () => {
 
     const containerRef = useRef(null)
     const textRef = useRef(null)
     const contentRef = useRef(null)
-
+    const mainContainerRef = useRef(null)
+    const [isInView, setisInView] = useState(false)
+    const animationTimeline = useProcessCardAnimation();
     useGSAP(() => {
         let mm = gsap.matchMedia();
 
@@ -45,10 +58,39 @@ const Process = () => {
                 start: 'top 80%',
             }
         })
-    }, { scope: contentRef });
+
+        ScrollTrigger.create({
+            trigger: mainContainerRef.current,
+            start: 'top bottom',
+            end: 'bottom top',
+            onEnter: () => {
+                setisInView(true)
+                console.log('Entered the view')
+            },
+            onLeave: () => setisInView(false),
+            onEnterBack: () => setisInView(true),
+            onLeaveBack: () => setisInView(false)
+
+        })
+    }, { scope: mainContainerRef });
+
+    useEffect(() => {
+
+        if (!animationTimeline) return;
+        if (!isInView) {
+            console.log('animation has been stopped')
+            animationTimeline.pause();
+        }
+        else {
+            console.log('animation has been played')
+            animationTimeline.play();
+        }
+    }, [isInView])
 
     return (
-        <section className='w-full h-fit flex justify-center my-[8%] md:my-[6%]'>
+        <section className='w-full h-fit flex justify-center my-[8%] md:my-[6%]'
+            ref={mainContainerRef}
+        >
             <div className='layout h-full flex flex-col gap-big items-center'>
 
                 {/* heading */}
@@ -57,7 +99,7 @@ const Process = () => {
                         ref={containerRef}
                     >
                         <h3 className='big-header'
-                            ref={textRef}>How we <span className='big-header-italic text-primary'><br className='hidden' />do it ?</span></h3>
+                            ref={textRef}>How We <span className='big-header-italic text-primary'><br className='xl:inline hidden' /> do it <span className='not-italic!'>?</span></span></h3>
                     </div>
                 </ScrollRevealText>
 
@@ -94,11 +136,13 @@ const Process = () => {
 
 
 const CardIcon1 = () => {
-
     const containerRef = useRef(null)
+    const card1AnimationRef = useRef(null);
+
+    const animationTimeline = useProcessCardAnimation();
     useGSAP(() => {
 
-        gsap.timeline({
+        card1AnimationRef.current = gsap.timeline({
             repeat: -1,
             repeatDelay: 1
         })
@@ -142,6 +186,8 @@ const CardIcon1 = () => {
                 scale: 1.8,
                 duration: 0.6
             })
+
+        animationTimeline.add(card1AnimationRef.current, 0)
     })
     return (
         <div className='h-full w-full p-2' ref={containerRef}>
@@ -163,16 +209,18 @@ const CardIcon1 = () => {
 }
 
 const CardIcon3 = () => {
+    const animationTimeline = useProcessCardAnimation();
+    const card3AnimationRef = useRef(null)
     const containerRef = useRef(null)
     useGSAP(() => {
 
-        const tl = gsap.timeline({
+        card3AnimationRef.current = gsap.timeline({
             repeat: -1,
             repeatDelay: 1.4
         });
 
         gsap.utils.toArray('.message').forEach(each => {
-            tl.add(
+            card3AnimationRef.current.add(
                 gsap.fromTo(each, {
                     opacity: 0,
                     scale: 0.8
@@ -184,6 +232,8 @@ const CardIcon3 = () => {
                 })
             )
         })
+
+        animationTimeline.add(card3AnimationRef.current, 0)
     }, { scope: containerRef })
 
 
@@ -203,7 +253,6 @@ const CardIcon3 = () => {
 }
 
 const CardIcon3EachMessage = ({ isClient, message }) => {
-
     return (
         <div className={`message w-full flex ${isClient ? 'justify-start origin-bottom-left left-message' : 'justify-end origin-bottom-right right-message'}`}>
             <div className={`max-w-[80%] w-fit p-2
@@ -218,9 +267,13 @@ const CardIcon3EachMessage = ({ isClient, message }) => {
 
 const CardIcon2 = () => {
 
+    const card2AnimationRef = useRef(null)
     const containerRef = useRef(null)
+
+    const animationTimeline = useProcessCardAnimation();
+
     useGSAP(() => {
-        gsap.timeline({
+        card2AnimationRef.current = gsap.timeline({
             repeat: -1,
             repeatDelay: 0.8
         })
@@ -239,6 +292,7 @@ const CardIcon2 = () => {
                 ease: 'power1.out'
             })
 
+        animationTimeline.add(card2AnimationRef.current, 0)
     }, { scope: containerRef })
     return (
         <div className='h-full w-full p-2'
