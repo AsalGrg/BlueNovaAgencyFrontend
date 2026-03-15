@@ -44,7 +44,7 @@ const Navbar = () => {
   }, [complete])
 
   return (
-    <nav className='fixed top-0 h-fit flex justify-center xs:py-[8%] md:py-[6%] xl:p-[40px] w-full z-20'
+    <nav className='fixed top-0 h-fit flex justify-center xs:py-[8%] md:py-[4%] w-full z-20'
       ref={navbarRef}
     >
       {/* Buttons — isolated, no blend */}

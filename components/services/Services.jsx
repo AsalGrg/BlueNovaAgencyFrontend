@@ -18,7 +18,7 @@ const Services = () => {
 
         let mm = gsap.matchMedia();
 
-        mm.add("(max-width: 1050px)", () => {
+        mm.add("(max-width: 1020px)", () => {
             gsap.to('.content', {
                 x: '-70%',
                 ease: 'linear',
@@ -83,10 +83,10 @@ const Services = () => {
 
                 {/* services list */}
                 <div className='w-[100%] flex
-                xl:justify-center xl:h-fit!
+                xl:justify-center lg:h-fit!
                 justify-start
                 overflow-hidden
-                h-[200vh]
+                h-[300vmin]
                 '
                     ref={contentRef}
                 >

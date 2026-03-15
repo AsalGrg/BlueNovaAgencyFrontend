@@ -27,7 +27,7 @@ const Process = () => {
     useGSAP(() => {
         let mm = gsap.matchMedia();
 
-        mm.add("(max-width: 1050px)", () => {
+        mm.add("(max-width: 1270px)", () => {
             gsap.to('.content', {
                 x: '-80%',
                 ease: 'linear',
@@ -99,23 +99,23 @@ const Process = () => {
                         ref={containerRef}
                     >
                         <h3 className='big-header'
-                            ref={textRef}>How We <span className='big-header-italic text-primary'><br className='xl:inline hidden' /> do it <span className='not-italic!'>?</span></span></h3>
+                            ref={textRef}>How We <span className='big-header-italic text-primary'><br className='sm:inline lg:hidden' />do it ?</span></h3>
                     </div>
                 </ScrollRevealText>
 
 
                 <div className='w-[100%] flex
                 xl:justify-center xl:h-fit 
-                h-[300vh] justify-start 
+                h-[250vh] justify-start 
                 overflow-hidden
                 '
                     ref={contentRef}
                 >
                     <div className='
                     w-fit
-                    lg:w-[80%]
+                    xl:w-[80%] justify-center
                     content flex items-start md:gap-10 gap-8
-                    lg:grid grid-cols-3
+                    xl:grid grid-cols-3
                 '
                     >
                         <ProcessCard cardIcon={<CardIcon1 />} title={'We know our'} italicTitle={'clients'}
