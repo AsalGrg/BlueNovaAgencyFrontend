@@ -6,7 +6,7 @@ const ProcessCard = ({ isEven, cardIcon, title, italicTitle, desc}) => {
     const device = useDeviceType();
     return (
         <div
-            className={`processCard rounded-3xl ${isEven && device === 'desktop' ? 'my-[40%]' : ''}
+            className={`processCard rounded-3xl ${isEven && device === 'desktop' ? 'my-[80px]' : ''}
             h-120 w-[70vw]
             md:h-140 md:w-[40vw]
             xl:w-full col-span-1
