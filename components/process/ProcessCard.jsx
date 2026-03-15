@@ -8,7 +8,7 @@ const ProcessCard = ({ isEven, cardIcon, title, italicTitle, desc}) => {
         <div
             className={`processCard rounded-3xl ${isEven && device === 'desktop' ? 'my-[80px]' : ''}
             h-120 w-[70vw]
-            md:h-140 md:w-[40vw]
+            md:h-140 md:w-[35vw]
             xl:w-full col-span-1
             rounded-3xl border-2 border-primary 
             px-[24px] md:px-[32px] md:py-[40px] py-[32px] 

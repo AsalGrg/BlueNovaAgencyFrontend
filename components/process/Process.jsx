@@ -27,7 +27,7 @@ const Process = () => {
     useGSAP(() => {
         let mm = gsap.matchMedia();
 
-        mm.add("(max-width: 1270px)", () => {
+        mm.add("(max-width: 1450px)", () => {
             gsap.to('.content', {
                 x: '-80%',
                 ease: 'linear',
@@ -105,8 +105,8 @@ const Process = () => {
 
 
                 <div className='w-[100%] flex
-                xl:justify-center xl:h-fit 
-                h-[250vh] justify-start 
+                xl:justify-center min-[1500px]::h-fit 
+                max-[1450px]:h-[250vh] justify-start 
                 overflow-hidden
                 '
                     ref={contentRef}
@@ -115,7 +115,7 @@ const Process = () => {
                     w-fit
                     xl:w-[80%] justify-center
                     content flex items-start md:gap-10 gap-8
-                    xl:grid grid-cols-3
+                    min-[1450px]:grid grid-cols-3
                 '
                     >
                         <ProcessCard cardIcon={<CardIcon1 />} title={'We know our'} italicTitle={'clients'}
