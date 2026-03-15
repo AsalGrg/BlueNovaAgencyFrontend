@@ -76,7 +76,7 @@ const ProjectsSlider = ({ project }) => {
 function EachSliderPhoto({ photo_url, alt }) {
     return (
         <SwiperSlide>
-            <div className="h-[60vmin] xl:h-screen relative">
+            <div className="h-[60vmin] 2xl:h-[60vmin]  xl:h-screen relative">
                 <Image
                     src={photo_url}
                     alt={alt}
