@@ -113,7 +113,7 @@ const Hero = () => {
 
     return (
         //bg-linear-to-b from-accent to-background to-32%
-        <section className='lg:h-[100vmin] md:h-[104vmin] h-[80vh]
+        <section className='lg:h-[100vmin] 2xl:h-[80vmin] md:h-[104vmin] h-[80vh]
          w-full
          flex justify-center
          mb-[50%] md:mb-[64%] lg:mb-[68%] 
